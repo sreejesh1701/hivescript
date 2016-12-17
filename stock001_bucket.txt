@@ -1,6 +1,6 @@
 --Bucketing Example
 
-use database stock;
+use stock;
 
 --Step 01 : Create source table without Partition
 drop table if exists stock001_source;
