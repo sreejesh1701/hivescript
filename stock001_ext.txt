@@ -6,7 +6,7 @@ create external table stock001_external (exchange_1 string, s_name string, s_dat
 										close float, volume float, adj_close float)
 row format delimited
 fields terminated by ','
-Location '/hive_external/stock001';
+Location '/user/sreejesh1701/hive_external/stock001';
 
 -- Loading data
 
