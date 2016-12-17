@@ -1,0 +1,27 @@
+--Bucketing Example
+
+use database stock;
+
+--Step 01 : Create source table without Partition
+drop table if exists stock001_source;
+create table stock001_source (exchange_1 string, s_name string, s_date string, open float, high float, low float, close float, volume float, adj_close float)
+row format delimeted
+fields terminated by ',';
+
+-- load data to source table. 
+load data local inpath '/home/sreejesh1701/hiveinput/NYSE.csv' into stock001_source;
+
+--Step 02 : Create Bucketing table 
+drop table if exists bucketstock001;
+create table bucketstock001 (exchange_1 string, s_name string, s_date string, open float, high float, low float, close float, volume float, adj_close float)
+clustered by (volume float) into 10 buckets;
+
+--Step 03 : Set dymanic patition (by default is not set)
+set hive.enforce.bucketing=true;
+
+--Step 04 : Load data to bucketing table. 
+insert override table bucketstock001  
+select * from stock001_source;
+
+--Step 05 : Drop Source table 
+drop table stock001_source;
