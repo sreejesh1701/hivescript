@@ -5,7 +5,7 @@ use stock;
 --Step 01 : Create source table without Partition
 drop table if exists stock001_source;
 create table stock001_source (exchange_1 string, s_name string, s_date string, open float, high float, low float, close float, volume float, adj_close float)
-row format delimeted
+row format delimited
 fields terminated by ',';
 
 -- load data to source table. 

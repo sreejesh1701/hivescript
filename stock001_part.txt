@@ -4,7 +4,7 @@ use stock;
 
 --Step 01 : Create source table without Partition
 create table stock001_source (exchange_1 string, s_name string, s_date string, open float, high float, low float, close float, volume float, adj_close float)
-row format delimeted
+row format delimited
 fields terminated by ',';
 
 -- load data to source table. 
@@ -14,7 +14,7 @@ load data local inpath '/home/sreejesh1701/hiveinput/NYSE.csv' into stock001_sou
 drop table if exists partstock001;
 create table partstock001 (exchange_1 string, s_name string, s_date string, open float, high float, low float, close float, volume float, adj_close float)
 partitioned by (year string)
-row format delimeted
+row format delimited
 fields terminated by ',';
 
 --Step 03 : Set dymanic patition (by default is not set)
