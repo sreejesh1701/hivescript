@@ -19,8 +19,8 @@ row format delimited
 fields terminated by ',';
 
 --Step 03 : Set dymanic patition (by default is not set)
-set hive.exec.dynamic.patition=true;
-set hive.exec.dynamic.patition.mode=nonstrict;
+set hive.exec.dynamic.partition=true;
+set hive.exec.dynamic.partition.mode=nonstrict;
 
 --Step 04 : Load data to patition table. 
 insert override table partstock001
