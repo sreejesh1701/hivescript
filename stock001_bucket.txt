@@ -14,7 +14,7 @@ load data local inpath '/home/sreejesh1701/hiveinput/NYSE.csv' into table stock0
 --Step 02 : Create Bucketing table 
 drop table if exists bucketstock001;
 create table bucketstock001 (exchange_1 string, s_name string, s_date string, open float, high float, low float, close float, volume float, adj_close float)
-clustered by (volume float) into 10 buckets;
+CLUSTERED BY (volume) into 10 buckets;
 
 --Step 03 : Set dymanic patition (by default is not set)
 set hive.enforce.bucketing=true;
