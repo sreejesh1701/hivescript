@@ -24,7 +24,7 @@ set hive.exec.dynamic.partition.mode=nonstrict;
 
 --Step 04 : Load data to patition table. 
 insert override table partstock001
-partition (year)
+PARTITION (year)
 select exchange_1, s_name, s_date, open, high, low, close, volume, adj_close, SUBSTR(TRIM(s_date),1,4) from stock001_source;
 
 --Step 05 : Drop Source table 
