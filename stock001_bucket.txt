@@ -20,7 +20,7 @@ clustered by (volume float) into 10 buckets;
 set hive.enforce.bucketing=true;
 
 --Step 04 : Load data to bucketing table. 
-insert override table bucketstock001  
+INSERT OVERWRITE TABLE bucketstock001  
 select * from stock001_source;
 
 --Step 05 : Drop Source table 
