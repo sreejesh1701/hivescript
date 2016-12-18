@@ -2,6 +2,8 @@
 
 use stock;
 
+drop table if exists stock001_external;
+
 create external table stock001_external (exchange_1 string, s_name string, s_date string, open float, high float, low float, 
 										close float, volume float, adj_close float)
 row format delimited

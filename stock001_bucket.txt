@@ -9,7 +9,7 @@ row format delimited
 fields terminated by ',';
 
 -- load data to source table. 
-load data local inpath '/home/sreejesh1701/hiveinput/NYSE.csv' into stock001_source;
+load data local inpath '/home/sreejesh1701/hiveinput/NYSE.csv' into table stock001_source;
 
 --Step 02 : Create Bucketing table 
 drop table if exists bucketstock001;
